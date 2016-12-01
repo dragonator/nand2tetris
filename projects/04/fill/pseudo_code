@@ -1,0 +1,24 @@
+LISTEN
+    if KBD > 0 goto FILL
+    if KBD == 0 goto CLEAR
+    goto LISTEN
+
+FILL
+    fill_with = -1 (16 ones)
+    goto INIT_PRINT
+
+CLEAR
+    fill_with = 0
+    goto INIT_PRINT
+
+INIT_PRINT
+    words_count = 8192
+    counter = 0
+    current_address = SREEN
+
+PRINT_ITERATION
+    if counter == words_count go to LISTEN
+    current_address = fill_with
+    current_address += 1 (next word)
+    counter++
+    goto PRINT_ITERATION

@@ -1,0 +1,11 @@
+multiplier1 = R0
+multiplier2 = R1
+counter = multiplier2
+result = 0
+LOOP
+    result = result + multiplier1
+    counter = counter - 1
+    if counter > 0 goto LOOP
+
+R2 = result
+
